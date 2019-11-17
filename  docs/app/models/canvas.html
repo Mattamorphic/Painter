@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.1" />
+<title>app.models.canvas API documentation</title>
+<meta name="description" content="Canvas Model
+A model for representing the canvas" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>app.models.canvas</code></h1>
+</header>
+<section id="section-intro">
+<p>Canvas Model
+A model for representing the canvas</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+    Canvas Model
+    A model for representing the canvas
+&#39;&#39;&#39;
+from .state import State
+from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtGui import QImage, QPainter
+
+
+class Canvas:
+    &#39;&#39;&#39;
+        The canvas
+
+        Args:
+            size (QSize): The size of the canvas
+    &#39;&#39;&#39;
+    previous = []
+    isSaved = False
+
+    class CanvasState(State):
+        &#39;&#39;&#39;
+            Canvas State
+        &#39;&#39;&#39;
+        isDrawing = False
+        hasPreview = False
+        initialPoint = QPoint()
+        lastPoint = QPoint()
+
+        def printState(self):
+            if self.isDrawing:
+                if self.hasPreview:
+                    return (
+                        &#34;Drawing a preview from &#34; +
+                        f&#34;{self.initialPoint.x()}, {self.initialPoint.y()} to&#34;
+                        + f&#34;{self.lastPoint.x()}, {self.lastPoint.y()}&#34;)
+                else:
+                    return f&#34;Drawing at {self.lastPoint.x()}, {self.lastPoint.y()}&#34;
+            else:
+                return &#34;Ready...&#34;
+
+    def __init__(self, size):
+        self.size = size
+        self.state = self.CanvasState()
+        self.clear()
+
+    def __drawing__(self, fromPoint, toPoint, pen):
+        &#39;&#39;&#39;
+            Method for drawing on the canvas (private)
+
+            Args:
+                fromPoint (QPoint): The start point
+                toPoint   (QPoint): The end point
+                pen       (QPen):   The pen to draw with
+        &#39;&#39;&#39;
+        self.state.lastPoint = toPoint
+        self.isSaved = False
+        painter = QPainter(self.image)
+        painter.setPen(pen)
+        if fromPoint != toPoint:
+            painter.drawLine(fromPoint, toPoint)
+        else:
+            painter.drawPoint(toPoint)
+
+    def undo(self):
+        &#39;&#39;&#39;
+            Return the canvas to a previous state
+        &#39;&#39;&#39;
+        if self.previous:
+            self.setImage(self.previous.pop())
+
+    def snapshotImage(self):
+        &#39;&#39;&#39;
+            Snapshot the current state of the canvas
+        &#39;&#39;&#39;
+        self.previous.append(QImage(self.image))
+        if len(self.previous) &gt; 50:
+            self.previous.pop(0)
+
+    def clear(self):
+        &#39;&#39;&#39;
+            Re-initialize the canvas
+        &#39;&#39;&#39;
+        image = QImage(self.size, QImage.Format_RGB32)
+        image.fill(Qt.white)
+        self.previous = []
+        self.image = image
+
+    def setImage(self, image):
+        &#39;&#39;&#39;
+            Set the canvas to a QImage
+
+            Args:
+                image (QImage): The image for the canvas
+        &#39;&#39;&#39;
+        self.image = QImage(image).scaled(self.size, Qt.KeepAspectRatio,
+                                          Qt.SmoothTransformation)
+
+    def draw(self, toPoint, brush):
+        &#39;&#39;&#39;
+            General draw method to a point, with a brush
+
+            Args:
+                toPoint (QPoint): The point to paint to
+                brush   (Brush):  The brush model to use
+
+            Throws:
+                RuntimeError : Must set brush on canvas
+        &#39;&#39;&#39;
+        if not self.isDrawing():
+            raise RuntimeError(&#34;Canvas.brushOnCanvas must be called&#34;)
+        self.__drawing__(self.state.lastPoint, toPoint, brush.getPen())
+
+    def drawActual(self, toPoint, brush):
+        &#39;&#39;&#39;
+            Draw actual after preview
+
+            Args:
+                toPoint (QPoint): The point to paint to
+                brush   (Brush):  The brush model to use
+
+            Throws:
+                RuntimeError : Must set brush on canvas
+        &#39;&#39;&#39;
+        if not self.isDrawing():
+            raise RuntimeError(&#34;Canvas.brushOnCanvas must be called&#34;)
+        if self.state.hasPreview:
+            self.undo()
+            self.state.hasPreview = False
+        self.__drawing__(self.state.initialPoint, toPoint, brush.getPen())
+
+    def drawPreview(self, toPoint, brush):
+        &#39;&#39;&#39;
+            Draw a preview to a point, with a brush
+
+            Args:
+                toPoint (QPoint): The point to paint to
+                brush   (Brush):  The brush model to use
+
+            Throws:
+                RuntimeError : Must set brush on canvas
+        &#39;&#39;&#39;
+        if not self.isDrawing():
+            raise RuntimeError(&#34;Canvas.brushOnCanvas must be called&#34;)
+        if self.state.hasPreview:
+            self.undo()
+            self.state.hasPreview = False
+        self.snapshotImage()
+        self.__drawing__(self.state.initialPoint, toPoint,
+                         brush.getPreviewPen())
+        self.state.hasPreview = True
+
+    def getImage(self):
+        &#39;&#39;&#39;
+            Get the QImage attribute
+
+            Returns:
+                (QImage)
+        &#39;&#39;&#39;
+        return self.image
+
+    def save(self, path):
+        &#39;&#39;&#39;
+            Save the QImage to a file
+
+            Args:
+                path (str): Path to save to
+        &#39;&#39;&#39;
+        # TODO: Throw is path doesn&#39;t exist / isn&#39;t writable
+        self.image.save(path)
+        self.isSaved = True
+
+    def isEdited(self):
+        &#39;&#39;&#39;
+            Check to see if there are edits
+
+            Returns:
+                (bool)
+        &#39;&#39;&#39;
+        return True if self.previous else False
+
+    def isSaved(self):
+        &#39;&#39;&#39;
+            Check to see if the changes have been saved
+
+            Returns:
+                (bool)
+        &#39;&#39;&#39;
+        return self.isSaved
+
+    def isDrawing(self):
+        &#39;&#39;&#39;
+            Check to see if the canvas is being drawn on
+
+            Returns:
+                (bool)
+        &#39;&#39;&#39;
+        return self.state.isDrawing
+
+    def brushOnCanvas(self, point):
+        &#39;&#39;&#39;
+            Set a brush on the canvas at the given point
+
+            Args:
+                point (QPoint): The touch point
+        &#39;&#39;&#39;
+        self.state.isDrawing = True
+        self.state.initialPoint = point
+        self.state.lastPoint = point
+
+    def brushAwayFromCanvas(self):
+        &#39;&#39;&#39;
+            Remove a brush from the canvas
+        &#39;&#39;&#39;
+        self.state.isDrawing = False
+        self.state.initialPoint = None
+        self.state.lastPoint = None
+
+    def reset(self):
+        &#39;&#39;&#39;
+            Reset the image using the current image
+        &#39;&#39;&#39;
+        self.setImage(self.image)
+
+    def setSize(self, size):
+        &#39;&#39;&#39;
+            Set the size of the canvas
+
+            Args:
+                size (QSize): The size to use for the canvas
+        &#39;&#39;&#39;
+        self.size = size</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="app.models.canvas.Canvas"><code class="flex name class">
+<span>class <span class="ident">Canvas</span></span>
+<span>(</span><span>size)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>The canvas</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>size</code></strong> :&ensp;<code>QSize</code></dt>
+<dd>The size of the canvas</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Canvas:
+    &#39;&#39;&#39;
+        The canvas
+
+        Args:
+            size (QSize): The size of the canvas
+    &#39;&#39;&#39;
+    previous = []
+    isSaved = False
+
+    class CanvasState(State):
+        &#39;&#39;&#39;
+            Canvas State
+        &#39;&#39;&#39;
+        isDrawing = False
+        hasPreview = False
+        initialPoint = QPoint()
+        lastPoint = QPoint()
+
+        def printState(self):
+            if self.isDrawing:
+                if self.hasPreview:
+                    return (
+                        &#34;Drawing a preview from &#34; +
+                        f&#34;{self.initialPoint.x()}, {self.initialPoint.y()} to&#34;
+                        + f&#34;{self.lastPoint.x()}, {self.lastPoint.y()}&#34;)
+                else:
+                    return f&#34;Drawing at {self.lastPoint.x()}, {self.lastPoint.y()}&#34;
+            else:
+                return &#34;Ready...&#34;
+
+    def __init__(self, size):
+        self.size = size
+        self.state = self.CanvasState()
+        self.clear()
+
+    def __drawing__(self, fromPoint, toPoint, pen):
+        &#39;&#39;&#39;
+            Method for drawing on the canvas (private)
+
+            Args:
+                fromPoint (QPoint): The start point
+                toPoint   (QPoint): The end point
+                pen       (QPen):   The pen to draw with
+        &#39;&#39;&#39;
+        self.state.lastPoint = toPoint
+        self.isSaved = False
+        painter = QPainter(self.image)
+        painter.setPen(pen)
+        if fromPoint != toPoint:
+            painter.drawLine(fromPoint, toPoint)
+        else:
+            painter.drawPoint(toPoint)
+
+    def undo(self):
+        &#39;&#39;&#39;
+            Return the canvas to a previous state
+        &#39;&#39;&#39;
+        if self.previous:
+            self.setImage(self.previous.pop())
+
+    def snapshotImage(self):
+        &#39;&#39;&#39;
+            Snapshot the current state of the canvas
+        &#39;&#39;&#39;
+        self.previous.append(QImage(self.image))
+        if len(self.previous) &gt; 50:
+            self.previous.pop(0)
+
+    def clear(self):
+        &#39;&#39;&#39;
+            Re-initialize the canvas
+        &#39;&#39;&#39;
+        image = QImage(self.size, QImage.Format_RGB32)
+        image.fill(Qt.white)
+        self.previous = []
+        self.image = image
+
+    def setImage(self, image):
+        &#39;&#39;&#39;
+            Set the canvas to a QImage
+
+            Args:
+                image (QImage): The image for the canvas
+        &#39;&#39;&#39;
+        self.image = QImage(image).scaled(self.size, Qt.KeepAspectRatio,
+                                          Qt.SmoothTransformation)
+
+    def draw(self, toPoint, brush):
+        &#39;&#39;&#39;
+            General draw method to a point, with a brush
+
+            Args:
+                toPoint (QPoint): The point to paint to
+                brush   (Brush):  The brush model to use
+
+            Throws:
+                RuntimeError : Must set brush on canvas
+        &#39;&#39;&#39;
+        if not self.isDrawing():
+            raise RuntimeError(&#34;Canvas.brushOnCanvas must be called&#34;)
+        self.__drawing__(self.state.lastPoint, toPoint, brush.getPen())
+
+    def drawActual(self, toPoint, brush):
+        &#39;&#39;&#39;
+            Draw actual after preview
+
+            Args:
+                toPoint (QPoint): The point to paint to
+                brush   (Brush):  The brush model to use
+
+            Throws:
+                RuntimeError : Must set brush on canvas
+        &#39;&#39;&#39;
+        if not self.isDrawing():
+            raise RuntimeError(&#34;Canvas.brushOnCanvas must be called&#34;)
+        if self.state.hasPreview:
+            self.undo()
+            self.state.hasPreview = False
+        self.__drawing__(self.state.initialPoint, toPoint, brush.getPen())
+
+    def drawPreview(self, toPoint, brush):
+        &#39;&#39;&#39;
+            Draw a preview to a point, with a brush
+
+            Args:
+                toPoint (QPoint): The point to paint to
+                brush   (Brush):  The brush model to use
+
+            Throws:
+                RuntimeError : Must set brush on canvas
+        &#39;&#39;&#39;
+        if not self.isDrawing():
+            raise RuntimeError(&#34;Canvas.brushOnCanvas must be called&#34;)
+        if self.state.hasPreview:
+            self.undo()
+            self.state.hasPreview = False
+        self.snapshotImage()
+        self.__drawing__(self.state.initialPoint, toPoint,
+                         brush.getPreviewPen())
+        self.state.hasPreview = True
+
+    def getImage(self):
+        &#39;&#39;&#39;
+            Get the QImage attribute
+
+            Returns:
+                (QImage)
+        &#39;&#39;&#39;
+        return self.image
+
+    def save(self, path):
+        &#39;&#39;&#39;
+            Save the QImage to a file
+
+            Args:
+                path (str): Path to save to
+        &#39;&#39;&#39;
+        # TODO: Throw is path doesn&#39;t exist / isn&#39;t writable
+        self.image.save(path)
+        self.isSaved = True
+
+    def isEdited(self):
+        &#39;&#39;&#39;
+            Check to see if there are edits
+
+            Returns:
+                (bool)
+        &#39;&#39;&#39;
+        return True if self.previous else False
+
+    def isSaved(self):
+        &#39;&#39;&#39;
+            Check to see if the changes have been saved
+
+            Returns:
+                (bool)
+        &#39;&#39;&#39;
+        return self.isSaved
+
+    def isDrawing(self):
+        &#39;&#39;&#39;
+            Check to see if the canvas is being drawn on
+
+            Returns:
+                (bool)
+        &#39;&#39;&#39;
+        return self.state.isDrawing
+
+    def brushOnCanvas(self, point):
+        &#39;&#39;&#39;
+            Set a brush on the canvas at the given point
+
+            Args:
+                point (QPoint): The touch point
+        &#39;&#39;&#39;
+        self.state.isDrawing = True
+        self.state.initialPoint = point
+        self.state.lastPoint = point
+
+    def brushAwayFromCanvas(self):
+        &#39;&#39;&#39;
+            Remove a brush from the canvas
+        &#39;&#39;&#39;
+        self.state.isDrawing = False
+        self.state.initialPoint = None
+        self.state.lastPoint = None
+
+    def reset(self):
+        &#39;&#39;&#39;
+            Reset the image using the current image
+        &#39;&#39;&#39;
+        self.setImage(self.image)
+
+    def setSize(self, size):
+        &#39;&#39;&#39;
+            Set the size of the canvas
+
+            Args:
+                size (QSize): The size to use for the canvas
+        &#39;&#39;&#39;
+        self.size = size</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="app.models.canvas.Canvas.CanvasState"><code class="name">var <span class="ident">CanvasState</span></code></dt>
+<dd>
+<section class="desc"><p>Canvas State</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CanvasState(State):
+    &#39;&#39;&#39;
+        Canvas State
+    &#39;&#39;&#39;
+    isDrawing = False
+    hasPreview = False
+    initialPoint = QPoint()
+    lastPoint = QPoint()
+
+    def printState(self):
+        if self.isDrawing:
+            if self.hasPreview:
+                return (
+                    &#34;Drawing a preview from &#34; +
+                    f&#34;{self.initialPoint.x()}, {self.initialPoint.y()} to&#34;
+                    + f&#34;{self.lastPoint.x()}, {self.lastPoint.y()}&#34;)
+            else:
+                return f&#34;Drawing at {self.lastPoint.x()}, {self.lastPoint.y()}&#34;
+        else:
+            return &#34;Ready...&#34;</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.previous"><code class="name">var <span class="ident">previous</span></code></dt>
+<dd>
+<section class="desc"><p>Built-in mutable sequence.</p>
+<p>If no argument is given, the constructor creates a new empty list.
+The argument must be an iterable if specified.</p></section>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="app.models.canvas.Canvas.brushAwayFromCanvas"><code class="name flex">
+<span>def <span class="ident">brushAwayFromCanvas</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Remove a brush from the canvas</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def brushAwayFromCanvas(self):
+    &#39;&#39;&#39;
+        Remove a brush from the canvas
+    &#39;&#39;&#39;
+    self.state.isDrawing = False
+    self.state.initialPoint = None
+    self.state.lastPoint = None</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.brushOnCanvas"><code class="name flex">
+<span>def <span class="ident">brushOnCanvas</span></span>(<span>self, point)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Set a brush on the canvas at the given point</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>point</code></strong> :&ensp;<code>QPoint</code></dt>
+<dd>The touch point</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def brushOnCanvas(self, point):
+    &#39;&#39;&#39;
+        Set a brush on the canvas at the given point
+
+        Args:
+            point (QPoint): The touch point
+    &#39;&#39;&#39;
+    self.state.isDrawing = True
+    self.state.initialPoint = point
+    self.state.lastPoint = point</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.clear"><code class="name flex">
+<span>def <span class="ident">clear</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Re-initialize the canvas</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clear(self):
+    &#39;&#39;&#39;
+        Re-initialize the canvas
+    &#39;&#39;&#39;
+    image = QImage(self.size, QImage.Format_RGB32)
+    image.fill(Qt.white)
+    self.previous = []
+    self.image = image</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.draw"><code class="name flex">
+<span>def <span class="ident">draw</span></span>(<span>self, toPoint, brush)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>General draw method to a point, with a brush</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>toPoint</code></strong> :&ensp;<code>QPoint</code></dt>
+<dd>The point to paint to</dd>
+</dl>
+<p>brush
+(Brush):
+The brush model to use</p>
+<h2 id="throws">Throws</h2>
+<dl>
+<dt><strong><code>RuntimeError</code></strong> :&ensp;<code>Must</code> <code>set</code> <code>brush</code> <code>on</code> <code>canvas</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw(self, toPoint, brush):
+    &#39;&#39;&#39;
+        General draw method to a point, with a brush
+
+        Args:
+            toPoint (QPoint): The point to paint to
+            brush   (Brush):  The brush model to use
+
+        Throws:
+            RuntimeError : Must set brush on canvas
+    &#39;&#39;&#39;
+    if not self.isDrawing():
+        raise RuntimeError(&#34;Canvas.brushOnCanvas must be called&#34;)
+    self.__drawing__(self.state.lastPoint, toPoint, brush.getPen())</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.drawActual"><code class="name flex">
+<span>def <span class="ident">drawActual</span></span>(<span>self, toPoint, brush)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Draw actual after preview</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>toPoint</code></strong> :&ensp;<code>QPoint</code></dt>
+<dd>The point to paint to</dd>
+</dl>
+<p>brush
+(Brush):
+The brush model to use</p>
+<h2 id="throws">Throws</h2>
+<dl>
+<dt><strong><code>RuntimeError</code></strong> :&ensp;<code>Must</code> <code>set</code> <code>brush</code> <code>on</code> <code>canvas</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def drawActual(self, toPoint, brush):
+    &#39;&#39;&#39;
+        Draw actual after preview
+
+        Args:
+            toPoint (QPoint): The point to paint to
+            brush   (Brush):  The brush model to use
+
+        Throws:
+            RuntimeError : Must set brush on canvas
+    &#39;&#39;&#39;
+    if not self.isDrawing():
+        raise RuntimeError(&#34;Canvas.brushOnCanvas must be called&#34;)
+    if self.state.hasPreview:
+        self.undo()
+        self.state.hasPreview = False
+    self.__drawing__(self.state.initialPoint, toPoint, brush.getPen())</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.drawPreview"><code class="name flex">
+<span>def <span class="ident">drawPreview</span></span>(<span>self, toPoint, brush)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Draw a preview to a point, with a brush</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>toPoint</code></strong> :&ensp;<code>QPoint</code></dt>
+<dd>The point to paint to</dd>
+</dl>
+<p>brush
+(Brush):
+The brush model to use</p>
+<h2 id="throws">Throws</h2>
+<dl>
+<dt><strong><code>RuntimeError</code></strong> :&ensp;<code>Must</code> <code>set</code> <code>brush</code> <code>on</code> <code>canvas</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def drawPreview(self, toPoint, brush):
+    &#39;&#39;&#39;
+        Draw a preview to a point, with a brush
+
+        Args:
+            toPoint (QPoint): The point to paint to
+            brush   (Brush):  The brush model to use
+
+        Throws:
+            RuntimeError : Must set brush on canvas
+    &#39;&#39;&#39;
+    if not self.isDrawing():
+        raise RuntimeError(&#34;Canvas.brushOnCanvas must be called&#34;)
+    if self.state.hasPreview:
+        self.undo()
+        self.state.hasPreview = False
+    self.snapshotImage()
+    self.__drawing__(self.state.initialPoint, toPoint,
+                     brush.getPreviewPen())
+    self.state.hasPreview = True</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.getImage"><code class="name flex">
+<span>def <span class="ident">getImage</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get the QImage attribute</p>
+<h2 id="returns">Returns</h2>
+<p>(QImage)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getImage(self):
+    &#39;&#39;&#39;
+        Get the QImage attribute
+
+        Returns:
+            (QImage)
+    &#39;&#39;&#39;
+    return self.image</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.isDrawing"><code class="name flex">
+<span>def <span class="ident">isDrawing</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Check to see if the canvas is being drawn on</p>
+<h2 id="returns">Returns</h2>
+<p>(bool)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isDrawing(self):
+    &#39;&#39;&#39;
+        Check to see if the canvas is being drawn on
+
+        Returns:
+            (bool)
+    &#39;&#39;&#39;
+    return self.state.isDrawing</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.isEdited"><code class="name flex">
+<span>def <span class="ident">isEdited</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Check to see if there are edits</p>
+<h2 id="returns">Returns</h2>
+<p>(bool)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isEdited(self):
+    &#39;&#39;&#39;
+        Check to see if there are edits
+
+        Returns:
+            (bool)
+    &#39;&#39;&#39;
+    return True if self.previous else False</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.isSaved"><code class="name flex">
+<span>def <span class="ident">isSaved</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Check to see if the changes have been saved</p>
+<h2 id="returns">Returns</h2>
+<p>(bool)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isSaved(self):
+    &#39;&#39;&#39;
+        Check to see if the changes have been saved
+
+        Returns:
+            (bool)
+    &#39;&#39;&#39;
+    return self.isSaved</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Reset the image using the current image</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#39;&#39;&#39;
+        Reset the image using the current image
+    &#39;&#39;&#39;
+    self.setImage(self.image)</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.save"><code class="name flex">
+<span>def <span class="ident">save</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Save the QImage to a file</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path to save to</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save(self, path):
+    &#39;&#39;&#39;
+        Save the QImage to a file
+
+        Args:
+            path (str): Path to save to
+    &#39;&#39;&#39;
+    # TODO: Throw is path doesn&#39;t exist / isn&#39;t writable
+    self.image.save(path)
+    self.isSaved = True</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.setImage"><code class="name flex">
+<span>def <span class="ident">setImage</span></span>(<span>self, image)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Set the canvas to a QImage</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>image</code></strong> :&ensp;<code>QImage</code></dt>
+<dd>The image for the canvas</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setImage(self, image):
+    &#39;&#39;&#39;
+        Set the canvas to a QImage
+
+        Args:
+            image (QImage): The image for the canvas
+    &#39;&#39;&#39;
+    self.image = QImage(image).scaled(self.size, Qt.KeepAspectRatio,
+                                      Qt.SmoothTransformation)</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.setSize"><code class="name flex">
+<span>def <span class="ident">setSize</span></span>(<span>self, size)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Set the size of the canvas</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>size</code></strong> :&ensp;<code>QSize</code></dt>
+<dd>The size to use for the canvas</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setSize(self, size):
+    &#39;&#39;&#39;
+        Set the size of the canvas
+
+        Args:
+            size (QSize): The size to use for the canvas
+    &#39;&#39;&#39;
+    self.size = size</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.snapshotImage"><code class="name flex">
+<span>def <span class="ident">snapshotImage</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Snapshot the current state of the canvas</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def snapshotImage(self):
+    &#39;&#39;&#39;
+        Snapshot the current state of the canvas
+    &#39;&#39;&#39;
+    self.previous.append(QImage(self.image))
+    if len(self.previous) &gt; 50:
+        self.previous.pop(0)</code></pre>
+</details>
+</dd>
+<dt id="app.models.canvas.Canvas.undo"><code class="name flex">
+<span>def <span class="ident">undo</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Return the canvas to a previous state</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def undo(self):
+    &#39;&#39;&#39;
+        Return the canvas to a previous state
+    &#39;&#39;&#39;
+    if self.previous:
+        self.setImage(self.previous.pop())</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="app.models" href="index.html">app.models</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="app.models.canvas.Canvas" href="#app.models.canvas.Canvas">Canvas</a></code></h4>
+<ul class="two-column">
+<li><code><a title="app.models.canvas.Canvas.CanvasState" href="#app.models.canvas.Canvas.CanvasState">CanvasState</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.brushAwayFromCanvas" href="#app.models.canvas.Canvas.brushAwayFromCanvas">brushAwayFromCanvas</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.brushOnCanvas" href="#app.models.canvas.Canvas.brushOnCanvas">brushOnCanvas</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.clear" href="#app.models.canvas.Canvas.clear">clear</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.draw" href="#app.models.canvas.Canvas.draw">draw</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.drawActual" href="#app.models.canvas.Canvas.drawActual">drawActual</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.drawPreview" href="#app.models.canvas.Canvas.drawPreview">drawPreview</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.getImage" href="#app.models.canvas.Canvas.getImage">getImage</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.isDrawing" href="#app.models.canvas.Canvas.isDrawing">isDrawing</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.isEdited" href="#app.models.canvas.Canvas.isEdited">isEdited</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.isSaved" href="#app.models.canvas.Canvas.isSaved">isSaved</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.previous" href="#app.models.canvas.Canvas.previous">previous</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.reset" href="#app.models.canvas.Canvas.reset">reset</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.save" href="#app.models.canvas.Canvas.save">save</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.setImage" href="#app.models.canvas.Canvas.setImage">setImage</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.setSize" href="#app.models.canvas.Canvas.setSize">setSize</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.snapshotImage" href="#app.models.canvas.Canvas.snapshotImage">snapshotImage</a></code></li>
+<li><code><a title="app.models.canvas.Canvas.undo" href="#app.models.canvas.Canvas.undo">undo</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

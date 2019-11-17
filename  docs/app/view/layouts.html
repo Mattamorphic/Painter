@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.1" />
+<title>app.view.layouts API documentation</title>
+<meta name="description" content="Layouts for our views
+Each of the layouts extend from the base layouts …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>app.view.layouts</code></h1>
+</header>
+<section id="section-intro">
+<p>Layouts for our views
+Each of the layouts extend from the base layouts</p>
+<h2 id="author">Author</h2>
+<p>Matthew Barber <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#102;&#109;&#98;&#97;&#114;&#98;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#109;&#102;&#109;&#98;&#97;&#114;&#98;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+    Layouts for our views
+    Each of the layouts extend from the base layouts
+
+    Author:
+        Matthew Barber &lt;mfmbarber@gmail.com&gt;
+&#39;&#39;&#39;
+from PyQt5.QtWidgets import (QFormLayout, QGroupBox, QBoxLayout, QHBoxLayout,
+                             QLayout, QVBoxLayout, QWidget)
+
+
+class BaseGroupedLayout(QBoxLayout):
+    &#39;&#39;&#39;
+        Base grouped layout for widgets as we tend to use groupings
+
+        Args:
+            direction (QBoxLayout.DIRECTION): The direction for the layout
+    &#39;&#39;&#39;
+    def __init__(self, direction, parent=None):
+        super().__init__(direction, parent)
+        self.groups = []
+        self.groupIndex = 0
+        self.currentGroupIndex = 0
+        self.currentGroup = None
+
+    def addToCurrentGroup(self, *components):
+        &#39;&#39;&#39;
+            Used to add components to the current group
+
+            Args:
+                components (iterable): Widgets/layouts to add to the group
+        &#39;&#39;&#39;
+
+        for component in components:
+            # add widget is only available on a layout that we have added to the QGroupBox
+            if isinstance(component, QWidget):
+                self.groups[self.groupIndex].addWidget(component)
+            elif isinstance(component, QLayout):
+                self.groups[self.groupIndex].addLayout(component)
+
+    def addToExistingGroup(self, index: int, component):
+        &#39;&#39;&#39;
+            Add a component to a different group
+
+            Args:
+                index (int):                    The existing group index
+                component (QWidget/QLayout):    The component to aadd
+        &#39;&#39;&#39;
+        if index not in self.groups:
+            raise IndexError(&#34;Group at index is not set&#34;)
+        if isinstance(component, QWidget):
+            self.groups[index].addWidget(component)
+        elif isinstance(component, QLayout):
+            self.groups[index].addLayout(component)
+
+    def createGroup(self, layout, label=None, sizePolicy=None):
+        &#39;&#39;&#39;
+            Create a new group with a specific layout
+
+            Args:
+                layout (QBoxLayout):    A layout to use
+                label (str):            A label for the group
+                sizePolicy (tuple):     QSizePolicy for horizontal and vertical
+        &#39;&#39;&#39;
+        self.currentGroup = QGroupBox(label)
+        if sizePolicy:
+            self.currentGroup.setSizePolicy(*sizePolicy)
+        self.groups.append(layout)
+
+    def finishGroup(self):
+        &#39;&#39;&#39;
+            A finish method to build the layout
+        &#39;&#39;&#39;
+        self.currentGroup.setLayout(self.groups[self.groupIndex])
+        self.addWidget(self.currentGroup)
+        self.currentGroup = None
+        self.groupIndex += 1
+
+    def createVerticalGroup(self, label=None, sizePolicy=None, align=None):
+        &#39;&#39;&#39;
+            Create a new group with a vertical layout
+
+            Args:
+                label (str):         A label for the group
+                sizePolicy (tuple):  QSizePolicy for horizontal and vertical
+                align (QtAlign):     Align the contents
+        &#39;&#39;&#39;
+        layout = self.getVerticalLayout()
+        if align:
+            layout.setAlignment(align)
+        self.createGroup(self.getVerticalLayout(), label, sizePolicy)
+
+    def createHorizontalGroup(self, label=None, sizePolicy=None, align=None):
+        &#39;&#39;&#39;
+            Create a new group with a horizontal layout
+
+            Args:
+                label (str):         A label for the group
+                sizePolicy (tuple):  QSizePolicy for horizontal and vertical
+                align (QtAlign):     Align the contents
+        &#39;&#39;&#39;
+        layout = self.getHorizontalLayout()
+        if align:
+            layout.setAlignment(align)
+        self.createGroup(self.getHorizontalLayout(), label, sizePolicy)
+
+    def getFormLayout(self):
+        &#39;&#39;&#39;
+            Helper to create a new form layout
+
+            Returns:
+                (QFormLayout)
+        &#39;&#39;&#39;
+        return QFormLayout()
+
+    def getHorizontalLayout(self):
+        &#39;&#39;&#39;
+            Helper to create a new horizontal layout
+
+            Returns:
+                (QHBoxLayout)
+        &#39;&#39;&#39;
+        return QHBoxLayout()
+
+    def getVerticalLayout(self):
+        &#39;&#39;&#39;
+            Helper to create a new vertical layout
+
+            Returns:
+                (QVBoxLayout)
+        &#39;&#39;&#39;
+        return QVBoxLayout()
+
+    def setLayoutOfCurrentGroup(self, layout):
+        &#39;&#39;&#39;
+            Helper to set the layout of the current group
+
+            Args:
+                layout (QBoxLayout): The Layout to set
+        &#39;&#39;&#39;
+        self.groups[self.groupIndex].addLayout(layout)
+
+
+class BaseRowGroupedLayout(BaseGroupedLayout):
+    &#39;&#39;&#39;
+        Wrapper for BaseGroupedLayout
+    &#39;&#39;&#39;
+    def __init__(self, parent=None):
+        super().__init__(QBoxLayout.TopToBottom, parent)
+
+
+class BaseColumnGroupedLayout(BaseGroupedLayout):
+    &#39;&#39;&#39;
+        Wrapper for BaseGroupedLayout
+    &#39;&#39;&#39;
+    def __init__(self, parent=None):
+        super().__init__(QBoxLayout.LeftToRight, parent)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="app.view.layouts.BaseColumnGroupedLayout"><code class="flex name class">
+<span>class <span class="ident">BaseColumnGroupedLayout</span></span>
+<span>(</span><span>parent=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Wrapper for BaseGroupedLayout</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseColumnGroupedLayout(BaseGroupedLayout):
+    &#39;&#39;&#39;
+        Wrapper for BaseGroupedLayout
+    &#39;&#39;&#39;
+    def __init__(self, parent=None):
+        super().__init__(QBoxLayout.LeftToRight, parent)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="app.view.layouts.BaseGroupedLayout" href="#app.view.layouts.BaseGroupedLayout">BaseGroupedLayout</a></li>
+<li>PyQt5.QtWidgets.QBoxLayout</li>
+<li>PyQt5.QtWidgets.QLayout</li>
+<li>PyQt5.QtCore.QObject</li>
+<li>PyQt5.QtWidgets.QLayoutItem</li>
+<li>sip.wrapper</li>
+<li>sip.simplewrapper</li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="app.view.layouts.BaseGroupedLayout" href="#app.view.layouts.BaseGroupedLayout">BaseGroupedLayout</a></b></code>:
+<ul class="hlist">
+<li><code><a title="app.view.layouts.BaseGroupedLayout.addToCurrentGroup" href="#app.view.layouts.BaseGroupedLayout.addToCurrentGroup">addToCurrentGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.addToExistingGroup" href="#app.view.layouts.BaseGroupedLayout.addToExistingGroup">addToExistingGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.createGroup" href="#app.view.layouts.BaseGroupedLayout.createGroup">createGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.createHorizontalGroup" href="#app.view.layouts.BaseGroupedLayout.createHorizontalGroup">createHorizontalGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.createVerticalGroup" href="#app.view.layouts.BaseGroupedLayout.createVerticalGroup">createVerticalGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.finishGroup" href="#app.view.layouts.BaseGroupedLayout.finishGroup">finishGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.getFormLayout" href="#app.view.layouts.BaseGroupedLayout.getFormLayout">getFormLayout</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.getHorizontalLayout" href="#app.view.layouts.BaseGroupedLayout.getHorizontalLayout">getHorizontalLayout</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.getVerticalLayout" href="#app.view.layouts.BaseGroupedLayout.getVerticalLayout">getVerticalLayout</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.setLayoutOfCurrentGroup" href="#app.view.layouts.BaseGroupedLayout.setLayoutOfCurrentGroup">setLayoutOfCurrentGroup</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="app.view.layouts.BaseGroupedLayout"><code class="flex name class">
+<span>class <span class="ident">BaseGroupedLayout</span></span>
+<span>(</span><span>direction, parent=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Base grouped layout for widgets as we tend to use groupings</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>direction</code></strong> :&ensp;<code>QBoxLayout.DIRECTION</code></dt>
+<dd>The direction for the layout</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseGroupedLayout(QBoxLayout):
+    &#39;&#39;&#39;
+        Base grouped layout for widgets as we tend to use groupings
+
+        Args:
+            direction (QBoxLayout.DIRECTION): The direction for the layout
+    &#39;&#39;&#39;
+    def __init__(self, direction, parent=None):
+        super().__init__(direction, parent)
+        self.groups = []
+        self.groupIndex = 0
+        self.currentGroupIndex = 0
+        self.currentGroup = None
+
+    def addToCurrentGroup(self, *components):
+        &#39;&#39;&#39;
+            Used to add components to the current group
+
+            Args:
+                components (iterable): Widgets/layouts to add to the group
+        &#39;&#39;&#39;
+
+        for component in components:
+            # add widget is only available on a layout that we have added to the QGroupBox
+            if isinstance(component, QWidget):
+                self.groups[self.groupIndex].addWidget(component)
+            elif isinstance(component, QLayout):
+                self.groups[self.groupIndex].addLayout(component)
+
+    def addToExistingGroup(self, index: int, component):
+        &#39;&#39;&#39;
+            Add a component to a different group
+
+            Args:
+                index (int):                    The existing group index
+                component (QWidget/QLayout):    The component to aadd
+        &#39;&#39;&#39;
+        if index not in self.groups:
+            raise IndexError(&#34;Group at index is not set&#34;)
+        if isinstance(component, QWidget):
+            self.groups[index].addWidget(component)
+        elif isinstance(component, QLayout):
+            self.groups[index].addLayout(component)
+
+    def createGroup(self, layout, label=None, sizePolicy=None):
+        &#39;&#39;&#39;
+            Create a new group with a specific layout
+
+            Args:
+                layout (QBoxLayout):    A layout to use
+                label (str):            A label for the group
+                sizePolicy (tuple):     QSizePolicy for horizontal and vertical
+        &#39;&#39;&#39;
+        self.currentGroup = QGroupBox(label)
+        if sizePolicy:
+            self.currentGroup.setSizePolicy(*sizePolicy)
+        self.groups.append(layout)
+
+    def finishGroup(self):
+        &#39;&#39;&#39;
+            A finish method to build the layout
+        &#39;&#39;&#39;
+        self.currentGroup.setLayout(self.groups[self.groupIndex])
+        self.addWidget(self.currentGroup)
+        self.currentGroup = None
+        self.groupIndex += 1
+
+    def createVerticalGroup(self, label=None, sizePolicy=None, align=None):
+        &#39;&#39;&#39;
+            Create a new group with a vertical layout
+
+            Args:
+                label (str):         A label for the group
+                sizePolicy (tuple):  QSizePolicy for horizontal and vertical
+                align (QtAlign):     Align the contents
+        &#39;&#39;&#39;
+        layout = self.getVerticalLayout()
+        if align:
+            layout.setAlignment(align)
+        self.createGroup(self.getVerticalLayout(), label, sizePolicy)
+
+    def createHorizontalGroup(self, label=None, sizePolicy=None, align=None):
+        &#39;&#39;&#39;
+            Create a new group with a horizontal layout
+
+            Args:
+                label (str):         A label for the group
+                sizePolicy (tuple):  QSizePolicy for horizontal and vertical
+                align (QtAlign):     Align the contents
+        &#39;&#39;&#39;
+        layout = self.getHorizontalLayout()
+        if align:
+            layout.setAlignment(align)
+        self.createGroup(self.getHorizontalLayout(), label, sizePolicy)
+
+    def getFormLayout(self):
+        &#39;&#39;&#39;
+            Helper to create a new form layout
+
+            Returns:
+                (QFormLayout)
+        &#39;&#39;&#39;
+        return QFormLayout()
+
+    def getHorizontalLayout(self):
+        &#39;&#39;&#39;
+            Helper to create a new horizontal layout
+
+            Returns:
+                (QHBoxLayout)
+        &#39;&#39;&#39;
+        return QHBoxLayout()
+
+    def getVerticalLayout(self):
+        &#39;&#39;&#39;
+            Helper to create a new vertical layout
+
+            Returns:
+                (QVBoxLayout)
+        &#39;&#39;&#39;
+        return QVBoxLayout()
+
+    def setLayoutOfCurrentGroup(self, layout):
+        &#39;&#39;&#39;
+            Helper to set the layout of the current group
+
+            Args:
+                layout (QBoxLayout): The Layout to set
+        &#39;&#39;&#39;
+        self.groups[self.groupIndex].addLayout(layout)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt5.QtWidgets.QBoxLayout</li>
+<li>PyQt5.QtWidgets.QLayout</li>
+<li>PyQt5.QtCore.QObject</li>
+<li>PyQt5.QtWidgets.QLayoutItem</li>
+<li>sip.wrapper</li>
+<li>sip.simplewrapper</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="app.view.layouts.BaseRowGroupedLayout" href="#app.view.layouts.BaseRowGroupedLayout">BaseRowGroupedLayout</a></li>
+<li><a title="app.view.layouts.BaseColumnGroupedLayout" href="#app.view.layouts.BaseColumnGroupedLayout">BaseColumnGroupedLayout</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="app.view.layouts.BaseGroupedLayout.addToCurrentGroup"><code class="name flex">
+<span>def <span class="ident">addToCurrentGroup</span></span>(<span>self, *components)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Used to add components to the current group</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>components</code></strong> :&ensp;<code>iterable</code></dt>
+<dd>Widgets/layouts to add to the group</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addToCurrentGroup(self, *components):
+    &#39;&#39;&#39;
+        Used to add components to the current group
+
+        Args:
+            components (iterable): Widgets/layouts to add to the group
+    &#39;&#39;&#39;
+
+    for component in components:
+        # add widget is only available on a layout that we have added to the QGroupBox
+        if isinstance(component, QWidget):
+            self.groups[self.groupIndex].addWidget(component)
+        elif isinstance(component, QLayout):
+            self.groups[self.groupIndex].addLayout(component)</code></pre>
+</details>
+</dd>
+<dt id="app.view.layouts.BaseGroupedLayout.addToExistingGroup"><code class="name flex">
+<span>def <span class="ident">addToExistingGroup</span></span>(<span>self, index, component)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Add a component to a different group</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>index</code></strong> :&ensp;<code>int</code></dt>
+<dd>
+<pre><code>           The existing group index
+</code></pre>
+</dd>
+</dl>
+<p>component (QWidget/QLayout):
+The component to aadd</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addToExistingGroup(self, index: int, component):
+    &#39;&#39;&#39;
+        Add a component to a different group
+
+        Args:
+            index (int):                    The existing group index
+            component (QWidget/QLayout):    The component to aadd
+    &#39;&#39;&#39;
+    if index not in self.groups:
+        raise IndexError(&#34;Group at index is not set&#34;)
+    if isinstance(component, QWidget):
+        self.groups[index].addWidget(component)
+    elif isinstance(component, QLayout):
+        self.groups[index].addLayout(component)</code></pre>
+</details>
+</dd>
+<dt id="app.view.layouts.BaseGroupedLayout.createGroup"><code class="name flex">
+<span>def <span class="ident">createGroup</span></span>(<span>self, layout, label=None, sizePolicy=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Create a new group with a specific layout</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>layout</code></strong> :&ensp;<code>QBoxLayout</code></dt>
+<dd>A layout to use</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>
+<pre><code>   A label for the group
+</code></pre>
+</dd>
+<dt><strong><code>sizePolicy</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>
+<p>QSizePolicy for horizontal and vertical</p>
+</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createGroup(self, layout, label=None, sizePolicy=None):
+    &#39;&#39;&#39;
+        Create a new group with a specific layout
+
+        Args:
+            layout (QBoxLayout):    A layout to use
+            label (str):            A label for the group
+            sizePolicy (tuple):     QSizePolicy for horizontal and vertical
+    &#39;&#39;&#39;
+    self.currentGroup = QGroupBox(label)
+    if sizePolicy:
+        self.currentGroup.setSizePolicy(*sizePolicy)
+    self.groups.append(layout)</code></pre>
+</details>
+</dd>
+<dt id="app.view.layouts.BaseGroupedLayout.createHorizontalGroup"><code class="name flex">
+<span>def <span class="ident">createHorizontalGroup</span></span>(<span>self, label=None, sizePolicy=None, align=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Create a new group with a horizontal layout</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>
+<pre><code>A label for the group
+</code></pre>
+</dd>
+<dt><strong><code>sizePolicy</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>QSizePolicy for horizontal and vertical</dd>
+<dt><strong><code>align</code></strong> :&ensp;<code>QtAlign</code></dt>
+<dd>
+<p>Align the contents</p>
+</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createHorizontalGroup(self, label=None, sizePolicy=None, align=None):
+    &#39;&#39;&#39;
+        Create a new group with a horizontal layout
+
+        Args:
+            label (str):         A label for the group
+            sizePolicy (tuple):  QSizePolicy for horizontal and vertical
+            align (QtAlign):     Align the contents
+    &#39;&#39;&#39;
+    layout = self.getHorizontalLayout()
+    if align:
+        layout.setAlignment(align)
+    self.createGroup(self.getHorizontalLayout(), label, sizePolicy)</code></pre>
+</details>
+</dd>
+<dt id="app.view.layouts.BaseGroupedLayout.createVerticalGroup"><code class="name flex">
+<span>def <span class="ident">createVerticalGroup</span></span>(<span>self, label=None, sizePolicy=None, align=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Create a new group with a vertical layout</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>
+<pre><code>A label for the group
+</code></pre>
+</dd>
+<dt><strong><code>sizePolicy</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>QSizePolicy for horizontal and vertical</dd>
+<dt><strong><code>align</code></strong> :&ensp;<code>QtAlign</code></dt>
+<dd>
+<p>Align the contents</p>
+</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createVerticalGroup(self, label=None, sizePolicy=None, align=None):
+    &#39;&#39;&#39;
+        Create a new group with a vertical layout
+
+        Args:
+            label (str):         A label for the group
+            sizePolicy (tuple):  QSizePolicy for horizontal and vertical
+            align (QtAlign):     Align the contents
+    &#39;&#39;&#39;
+    layout = self.getVerticalLayout()
+    if align:
+        layout.setAlignment(align)
+    self.createGroup(self.getVerticalLayout(), label, sizePolicy)</code></pre>
+</details>
+</dd>
+<dt id="app.view.layouts.BaseGroupedLayout.finishGroup"><code class="name flex">
+<span>def <span class="ident">finishGroup</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>A finish method to build the layout</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def finishGroup(self):
+    &#39;&#39;&#39;
+        A finish method to build the layout
+    &#39;&#39;&#39;
+    self.currentGroup.setLayout(self.groups[self.groupIndex])
+    self.addWidget(self.currentGroup)
+    self.currentGroup = None
+    self.groupIndex += 1</code></pre>
+</details>
+</dd>
+<dt id="app.view.layouts.BaseGroupedLayout.getFormLayout"><code class="name flex">
+<span>def <span class="ident">getFormLayout</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Helper to create a new form layout</p>
+<h2 id="returns">Returns</h2>
+<p>(QFormLayout)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getFormLayout(self):
+    &#39;&#39;&#39;
+        Helper to create a new form layout
+
+        Returns:
+            (QFormLayout)
+    &#39;&#39;&#39;
+    return QFormLayout()</code></pre>
+</details>
+</dd>
+<dt id="app.view.layouts.BaseGroupedLayout.getHorizontalLayout"><code class="name flex">
+<span>def <span class="ident">getHorizontalLayout</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Helper to create a new horizontal layout</p>
+<h2 id="returns">Returns</h2>
+<p>(QHBoxLayout)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getHorizontalLayout(self):
+    &#39;&#39;&#39;
+        Helper to create a new horizontal layout
+
+        Returns:
+            (QHBoxLayout)
+    &#39;&#39;&#39;
+    return QHBoxLayout()</code></pre>
+</details>
+</dd>
+<dt id="app.view.layouts.BaseGroupedLayout.getVerticalLayout"><code class="name flex">
+<span>def <span class="ident">getVerticalLayout</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Helper to create a new vertical layout</p>
+<h2 id="returns">Returns</h2>
+<p>(QVBoxLayout)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getVerticalLayout(self):
+    &#39;&#39;&#39;
+        Helper to create a new vertical layout
+
+        Returns:
+            (QVBoxLayout)
+    &#39;&#39;&#39;
+    return QVBoxLayout()</code></pre>
+</details>
+</dd>
+<dt id="app.view.layouts.BaseGroupedLayout.setLayoutOfCurrentGroup"><code class="name flex">
+<span>def <span class="ident">setLayoutOfCurrentGroup</span></span>(<span>self, layout)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Helper to set the layout of the current group</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>layout</code></strong> :&ensp;<code>QBoxLayout</code></dt>
+<dd>The Layout to set</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setLayoutOfCurrentGroup(self, layout):
+    &#39;&#39;&#39;
+        Helper to set the layout of the current group
+
+        Args:
+            layout (QBoxLayout): The Layout to set
+    &#39;&#39;&#39;
+    self.groups[self.groupIndex].addLayout(layout)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="app.view.layouts.BaseRowGroupedLayout"><code class="flex name class">
+<span>class <span class="ident">BaseRowGroupedLayout</span></span>
+<span>(</span><span>parent=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Wrapper for BaseGroupedLayout</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseRowGroupedLayout(BaseGroupedLayout):
+    &#39;&#39;&#39;
+        Wrapper for BaseGroupedLayout
+    &#39;&#39;&#39;
+    def __init__(self, parent=None):
+        super().__init__(QBoxLayout.TopToBottom, parent)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="app.view.layouts.BaseGroupedLayout" href="#app.view.layouts.BaseGroupedLayout">BaseGroupedLayout</a></li>
+<li>PyQt5.QtWidgets.QBoxLayout</li>
+<li>PyQt5.QtWidgets.QLayout</li>
+<li>PyQt5.QtCore.QObject</li>
+<li>PyQt5.QtWidgets.QLayoutItem</li>
+<li>sip.wrapper</li>
+<li>sip.simplewrapper</li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="app.view.layouts.BaseGroupedLayout" href="#app.view.layouts.BaseGroupedLayout">BaseGroupedLayout</a></b></code>:
+<ul class="hlist">
+<li><code><a title="app.view.layouts.BaseGroupedLayout.addToCurrentGroup" href="#app.view.layouts.BaseGroupedLayout.addToCurrentGroup">addToCurrentGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.addToExistingGroup" href="#app.view.layouts.BaseGroupedLayout.addToExistingGroup">addToExistingGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.createGroup" href="#app.view.layouts.BaseGroupedLayout.createGroup">createGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.createHorizontalGroup" href="#app.view.layouts.BaseGroupedLayout.createHorizontalGroup">createHorizontalGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.createVerticalGroup" href="#app.view.layouts.BaseGroupedLayout.createVerticalGroup">createVerticalGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.finishGroup" href="#app.view.layouts.BaseGroupedLayout.finishGroup">finishGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.getFormLayout" href="#app.view.layouts.BaseGroupedLayout.getFormLayout">getFormLayout</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.getHorizontalLayout" href="#app.view.layouts.BaseGroupedLayout.getHorizontalLayout">getHorizontalLayout</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.getVerticalLayout" href="#app.view.layouts.BaseGroupedLayout.getVerticalLayout">getVerticalLayout</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.setLayoutOfCurrentGroup" href="#app.view.layouts.BaseGroupedLayout.setLayoutOfCurrentGroup">setLayoutOfCurrentGroup</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="app.view" href="index.html">app.view</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="app.view.layouts.BaseColumnGroupedLayout" href="#app.view.layouts.BaseColumnGroupedLayout">BaseColumnGroupedLayout</a></code></h4>
+</li>
+<li>
+<h4><code><a title="app.view.layouts.BaseGroupedLayout" href="#app.view.layouts.BaseGroupedLayout">BaseGroupedLayout</a></code></h4>
+<ul class="">
+<li><code><a title="app.view.layouts.BaseGroupedLayout.addToCurrentGroup" href="#app.view.layouts.BaseGroupedLayout.addToCurrentGroup">addToCurrentGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.addToExistingGroup" href="#app.view.layouts.BaseGroupedLayout.addToExistingGroup">addToExistingGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.createGroup" href="#app.view.layouts.BaseGroupedLayout.createGroup">createGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.createHorizontalGroup" href="#app.view.layouts.BaseGroupedLayout.createHorizontalGroup">createHorizontalGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.createVerticalGroup" href="#app.view.layouts.BaseGroupedLayout.createVerticalGroup">createVerticalGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.finishGroup" href="#app.view.layouts.BaseGroupedLayout.finishGroup">finishGroup</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.getFormLayout" href="#app.view.layouts.BaseGroupedLayout.getFormLayout">getFormLayout</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.getHorizontalLayout" href="#app.view.layouts.BaseGroupedLayout.getHorizontalLayout">getHorizontalLayout</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.getVerticalLayout" href="#app.view.layouts.BaseGroupedLayout.getVerticalLayout">getVerticalLayout</a></code></li>
+<li><code><a title="app.view.layouts.BaseGroupedLayout.setLayoutOfCurrentGroup" href="#app.view.layouts.BaseGroupedLayout.setLayoutOfCurrentGroup">setLayoutOfCurrentGroup</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="app.view.layouts.BaseRowGroupedLayout" href="#app.view.layouts.BaseRowGroupedLayout">BaseRowGroupedLayout</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

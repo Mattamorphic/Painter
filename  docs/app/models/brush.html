@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.1" />
+<title>app.models.brush API documentation</title>
+<meta name="description" content="Brush
+A model representing our Brush …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>app.models.brush</code></h1>
+</header>
+<section id="section-intro">
+<p>Brush
+A model representing our Brush</p>
+<h2 id="author">Author</h2>
+<p>Matthew Barber <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#102;&#109;&#98;&#97;&#114;&#98;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#109;&#102;&#109;&#98;&#97;&#114;&#98;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+    Brush
+    A model representing our Brush
+
+    Author:
+        Matthew Barber &lt;mfmbarber@gmail.com&gt;
+&#39;&#39;&#39;
+from app.lib.constants import Constants
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPen
+
+
+class Brush:
+    &#39;&#39;&#39;
+        Brush has a set of attributes used to configure QPen
+    &#39;&#39;&#39;
+    # TODO : Move these to the constants class as enums
+    capTypes = {
+        &#39;ROUND&#39;: Qt.RoundCap,
+        &#39;SQUARE&#39;: Qt.SquareCap,
+        &#39;FLAT&#39;: Qt.FlatCap
+    }
+
+    joinTypes = {
+        &#39;MITER&#39;: Qt.MiterJoin,
+        &#39;BEVEL&#39;: Qt.BevelJoin,
+        &#39;ROUND&#39;: Qt.RoundJoin
+    }
+
+    lineTypes = {
+        &#39;SOLID&#39;: Qt.SolidLine,
+        &#39;DASH&#39;: Qt.DashLine,
+        &#39;DOT&#39;: Qt.DotLine,
+        &#39;DASH_DOT&#39;: Qt.DashDotLine,
+        &#39;DASH_DOT_DOT&#39;: Qt.DashDotDotLine,
+        &#39;CUSTOM&#39;: Qt.CustomDashLine
+    }
+
+    def __init__(self):
+        self.setDefaults()
+
+    def getBrushType(self):
+        &#39;&#39;&#39;
+            Returns the type of brush
+
+            Returns:
+                (Constants.BrushTypes)
+        &#39;&#39;&#39;
+        return self.type
+
+    def getColour(self):
+        &#39;&#39;&#39;
+            Returns the colour of the brush
+
+            Returns:
+                (QColor)
+        &#39;&#39;&#39;
+        return self.colour
+
+    def getSize(self):
+        &#39;&#39;&#39;
+            Returns the current size of the brush in pixels
+
+            Returns:
+                (int)
+        &#39;&#39;&#39;
+        return self.size
+
+    def getCapType(self):
+        &#39;&#39;&#39;
+            Returns the current cap on the brush
+        &#39;&#39;&#39;
+        return self.cap
+
+    def getLineType(self):
+        &#39;&#39;&#39;
+            Returns the current line type in use
+        &#39;&#39;&#39;
+        return self.line
+
+    def getJoinType(self):
+        &#39;&#39;&#39;
+            Returns the current join type
+        &#39;&#39;&#39;
+        return self.join
+
+    def getAllLineTypes(self):
+        &#39;&#39;&#39;
+            Returns all the line types
+        &#39;&#39;&#39;
+        return self.lineTypes
+
+    def getAllBrushTypes(self):
+        &#39;&#39;&#39;
+            Returns all of the brush types
+        &#39;&#39;&#39;
+        return dict(Constants.BrushTypes.__members__.items())
+
+    def getAllCapTypes(self):
+        &#39;&#39;&#39;
+            Returns all of the cap types
+        &#39;&#39;&#39;
+        return self.capTypes
+
+    def getAllJoinTypes(self):
+        &#39;&#39;&#39;
+            Returns all of the join types
+        &#39;&#39;&#39;
+        return self.joinTypes
+
+    def setBrushType(self, type: str):
+        &#39;&#39;&#39;
+            Setter for brush type
+        &#39;&#39;&#39;
+        self.type = Constants.BrushTypes[type]
+
+    def setColour(self, colour):
+        &#39;&#39;&#39;
+            Setter for colour
+        &#39;&#39;&#39;
+        self.colour = colour    # TODO: validation
+
+    def setSize(self, size: int):
+        &#39;&#39;&#39;
+            Setter for size
+        &#39;&#39;&#39;
+        self.size = size
+
+    def setLineType(self, type):
+        &#39;&#39;&#39;
+            Setter for line type
+        &#39;&#39;&#39;
+        line = self.lineTypes[type] if type in self.lineTypes else type
+        if line not in self.lineTypes.values():
+            raise ValueError(&#39;%s is not a valid line type&#39; % (line))
+        self.line = line
+
+    def setCapType(self, type):
+        &#39;&#39;&#39;
+            Setter for cap type
+        &#39;&#39;&#39;
+        cap = self.capTypes[type] if type in self.capTypes else type
+        if cap not in self.capTypes.values():
+            raise ValueError(&#39;%s is not a valid cap type&#39; % (cap))
+        self.cap = cap
+
+    def setJoinType(self, type):
+        &#39;&#39;&#39;
+            Setter for join type
+        &#39;&#39;&#39;
+        join = self.joinTypes[type] if type in self.joinTypes else type
+        if join not in self.joinTypes.values():
+            raise ValueError(&#39;%s is not a valid join type&#39; % (join))
+        self.join = join
+
+    def setDefaults(self):
+        &#39;&#39;&#39;
+            Sets the defaults for the brush
+        &#39;&#39;&#39;
+        self.size = 10
+        self.colour = Qt.red
+        self.line = Qt.SolidLine
+        self.cap = Qt.RoundCap
+        self.join = Qt.RoundJoin
+        self.type = Constants.BrushTypes.BRUSH
+
+    def getPen(self):
+        &#39;&#39;&#39;
+            Returns a QPen using the current attributes
+
+            Returns:
+                (QPen)
+        &#39;&#39;&#39;
+        return QPen(self.colour, self.size, self.line, self.cap, self.join)
+
+    def getPreviewPen(self):
+        &#39;&#39;&#39;
+            Returns a QPen with preview attributes
+
+            Returns:
+                (QPen)
+        &#39;&#39;&#39;
+        return QPen(Qt.black, 2, self.line, self.cap, self.join)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="app.models.brush.Brush"><code class="flex name class">
+<span>class <span class="ident">Brush</span></span>
+</code></dt>
+<dd>
+<section class="desc"><p>Brush has a set of attributes used to configure QPen</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Brush:
+    &#39;&#39;&#39;
+        Brush has a set of attributes used to configure QPen
+    &#39;&#39;&#39;
+    # TODO : Move these to the constants class as enums
+    capTypes = {
+        &#39;ROUND&#39;: Qt.RoundCap,
+        &#39;SQUARE&#39;: Qt.SquareCap,
+        &#39;FLAT&#39;: Qt.FlatCap
+    }
+
+    joinTypes = {
+        &#39;MITER&#39;: Qt.MiterJoin,
+        &#39;BEVEL&#39;: Qt.BevelJoin,
+        &#39;ROUND&#39;: Qt.RoundJoin
+    }
+
+    lineTypes = {
+        &#39;SOLID&#39;: Qt.SolidLine,
+        &#39;DASH&#39;: Qt.DashLine,
+        &#39;DOT&#39;: Qt.DotLine,
+        &#39;DASH_DOT&#39;: Qt.DashDotLine,
+        &#39;DASH_DOT_DOT&#39;: Qt.DashDotDotLine,
+        &#39;CUSTOM&#39;: Qt.CustomDashLine
+    }
+
+    def __init__(self):
+        self.setDefaults()
+
+    def getBrushType(self):
+        &#39;&#39;&#39;
+            Returns the type of brush
+
+            Returns:
+                (Constants.BrushTypes)
+        &#39;&#39;&#39;
+        return self.type
+
+    def getColour(self):
+        &#39;&#39;&#39;
+            Returns the colour of the brush
+
+            Returns:
+                (QColor)
+        &#39;&#39;&#39;
+        return self.colour
+
+    def getSize(self):
+        &#39;&#39;&#39;
+            Returns the current size of the brush in pixels
+
+            Returns:
+                (int)
+        &#39;&#39;&#39;
+        return self.size
+
+    def getCapType(self):
+        &#39;&#39;&#39;
+            Returns the current cap on the brush
+        &#39;&#39;&#39;
+        return self.cap
+
+    def getLineType(self):
+        &#39;&#39;&#39;
+            Returns the current line type in use
+        &#39;&#39;&#39;
+        return self.line
+
+    def getJoinType(self):
+        &#39;&#39;&#39;
+            Returns the current join type
+        &#39;&#39;&#39;
+        return self.join
+
+    def getAllLineTypes(self):
+        &#39;&#39;&#39;
+            Returns all the line types
+        &#39;&#39;&#39;
+        return self.lineTypes
+
+    def getAllBrushTypes(self):
+        &#39;&#39;&#39;
+            Returns all of the brush types
+        &#39;&#39;&#39;
+        return dict(Constants.BrushTypes.__members__.items())
+
+    def getAllCapTypes(self):
+        &#39;&#39;&#39;
+            Returns all of the cap types
+        &#39;&#39;&#39;
+        return self.capTypes
+
+    def getAllJoinTypes(self):
+        &#39;&#39;&#39;
+            Returns all of the join types
+        &#39;&#39;&#39;
+        return self.joinTypes
+
+    def setBrushType(self, type: str):
+        &#39;&#39;&#39;
+            Setter for brush type
+        &#39;&#39;&#39;
+        self.type = Constants.BrushTypes[type]
+
+    def setColour(self, colour):
+        &#39;&#39;&#39;
+            Setter for colour
+        &#39;&#39;&#39;
+        self.colour = colour    # TODO: validation
+
+    def setSize(self, size: int):
+        &#39;&#39;&#39;
+            Setter for size
+        &#39;&#39;&#39;
+        self.size = size
+
+    def setLineType(self, type):
+        &#39;&#39;&#39;
+            Setter for line type
+        &#39;&#39;&#39;
+        line = self.lineTypes[type] if type in self.lineTypes else type
+        if line not in self.lineTypes.values():
+            raise ValueError(&#39;%s is not a valid line type&#39; % (line))
+        self.line = line
+
+    def setCapType(self, type):
+        &#39;&#39;&#39;
+            Setter for cap type
+        &#39;&#39;&#39;
+        cap = self.capTypes[type] if type in self.capTypes else type
+        if cap not in self.capTypes.values():
+            raise ValueError(&#39;%s is not a valid cap type&#39; % (cap))
+        self.cap = cap
+
+    def setJoinType(self, type):
+        &#39;&#39;&#39;
+            Setter for join type
+        &#39;&#39;&#39;
+        join = self.joinTypes[type] if type in self.joinTypes else type
+        if join not in self.joinTypes.values():
+            raise ValueError(&#39;%s is not a valid join type&#39; % (join))
+        self.join = join
+
+    def setDefaults(self):
+        &#39;&#39;&#39;
+            Sets the defaults for the brush
+        &#39;&#39;&#39;
+        self.size = 10
+        self.colour = Qt.red
+        self.line = Qt.SolidLine
+        self.cap = Qt.RoundCap
+        self.join = Qt.RoundJoin
+        self.type = Constants.BrushTypes.BRUSH
+
+    def getPen(self):
+        &#39;&#39;&#39;
+            Returns a QPen using the current attributes
+
+            Returns:
+                (QPen)
+        &#39;&#39;&#39;
+        return QPen(self.colour, self.size, self.line, self.cap, self.join)
+
+    def getPreviewPen(self):
+        &#39;&#39;&#39;
+            Returns a QPen with preview attributes
+
+            Returns:
+                (QPen)
+        &#39;&#39;&#39;
+        return QPen(Qt.black, 2, self.line, self.cap, self.join)</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="app.models.brush.Brush.capTypes"><code class="name">var <span class="ident">capTypes</span></code></dt>
+<dd>
+<section class="desc"><p>dict() -&gt; new empty dictionary
+dict(mapping) -&gt; new dictionary initialized from a mapping object's
+(key, value) pairs
+dict(iterable) -&gt; new dictionary initialized as if via:
+d = {}
+for k, v in iterable:
+d[k] = v
+dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs
+in the keyword argument list.
+For example:
+dict(one=1, two=2)</p></section>
+</dd>
+<dt id="app.models.brush.Brush.joinTypes"><code class="name">var <span class="ident">joinTypes</span></code></dt>
+<dd>
+<section class="desc"><p>dict() -&gt; new empty dictionary
+dict(mapping) -&gt; new dictionary initialized from a mapping object's
+(key, value) pairs
+dict(iterable) -&gt; new dictionary initialized as if via:
+d = {}
+for k, v in iterable:
+d[k] = v
+dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs
+in the keyword argument list.
+For example:
+dict(one=1, two=2)</p></section>
+</dd>
+<dt id="app.models.brush.Brush.lineTypes"><code class="name">var <span class="ident">lineTypes</span></code></dt>
+<dd>
+<section class="desc"><p>dict() -&gt; new empty dictionary
+dict(mapping) -&gt; new dictionary initialized from a mapping object's
+(key, value) pairs
+dict(iterable) -&gt; new dictionary initialized as if via:
+d = {}
+for k, v in iterable:
+d[k] = v
+dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs
+in the keyword argument list.
+For example:
+dict(one=1, two=2)</p></section>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="app.models.brush.Brush.getAllBrushTypes"><code class="name flex">
+<span>def <span class="ident">getAllBrushTypes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns all of the brush types</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAllBrushTypes(self):
+    &#39;&#39;&#39;
+        Returns all of the brush types
+    &#39;&#39;&#39;
+    return dict(Constants.BrushTypes.__members__.items())</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getAllCapTypes"><code class="name flex">
+<span>def <span class="ident">getAllCapTypes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns all of the cap types</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAllCapTypes(self):
+    &#39;&#39;&#39;
+        Returns all of the cap types
+    &#39;&#39;&#39;
+    return self.capTypes</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getAllJoinTypes"><code class="name flex">
+<span>def <span class="ident">getAllJoinTypes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns all of the join types</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAllJoinTypes(self):
+    &#39;&#39;&#39;
+        Returns all of the join types
+    &#39;&#39;&#39;
+    return self.joinTypes</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getAllLineTypes"><code class="name flex">
+<span>def <span class="ident">getAllLineTypes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns all the line types</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAllLineTypes(self):
+    &#39;&#39;&#39;
+        Returns all the line types
+    &#39;&#39;&#39;
+    return self.lineTypes</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getBrushType"><code class="name flex">
+<span>def <span class="ident">getBrushType</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns the type of brush</p>
+<h2 id="returns">Returns</h2>
+<p>(Constants.BrushTypes)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBrushType(self):
+    &#39;&#39;&#39;
+        Returns the type of brush
+
+        Returns:
+            (Constants.BrushTypes)
+    &#39;&#39;&#39;
+    return self.type</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getCapType"><code class="name flex">
+<span>def <span class="ident">getCapType</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns the current cap on the brush</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCapType(self):
+    &#39;&#39;&#39;
+        Returns the current cap on the brush
+    &#39;&#39;&#39;
+    return self.cap</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getColour"><code class="name flex">
+<span>def <span class="ident">getColour</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns the colour of the brush</p>
+<h2 id="returns">Returns</h2>
+<p>(QColor)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getColour(self):
+    &#39;&#39;&#39;
+        Returns the colour of the brush
+
+        Returns:
+            (QColor)
+    &#39;&#39;&#39;
+    return self.colour</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getJoinType"><code class="name flex">
+<span>def <span class="ident">getJoinType</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns the current join type</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getJoinType(self):
+    &#39;&#39;&#39;
+        Returns the current join type
+    &#39;&#39;&#39;
+    return self.join</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getLineType"><code class="name flex">
+<span>def <span class="ident">getLineType</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns the current line type in use</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getLineType(self):
+    &#39;&#39;&#39;
+        Returns the current line type in use
+    &#39;&#39;&#39;
+    return self.line</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getPen"><code class="name flex">
+<span>def <span class="ident">getPen</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns a QPen using the current attributes</p>
+<h2 id="returns">Returns</h2>
+<p>(QPen)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPen(self):
+    &#39;&#39;&#39;
+        Returns a QPen using the current attributes
+
+        Returns:
+            (QPen)
+    &#39;&#39;&#39;
+    return QPen(self.colour, self.size, self.line, self.cap, self.join)</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getPreviewPen"><code class="name flex">
+<span>def <span class="ident">getPreviewPen</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns a QPen with preview attributes</p>
+<h2 id="returns">Returns</h2>
+<p>(QPen)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPreviewPen(self):
+    &#39;&#39;&#39;
+        Returns a QPen with preview attributes
+
+        Returns:
+            (QPen)
+    &#39;&#39;&#39;
+    return QPen(Qt.black, 2, self.line, self.cap, self.join)</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.getSize"><code class="name flex">
+<span>def <span class="ident">getSize</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Returns the current size of the brush in pixels</p>
+<h2 id="returns">Returns</h2>
+<p>(int)</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSize(self):
+    &#39;&#39;&#39;
+        Returns the current size of the brush in pixels
+
+        Returns:
+            (int)
+    &#39;&#39;&#39;
+    return self.size</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.setBrushType"><code class="name flex">
+<span>def <span class="ident">setBrushType</span></span>(<span>self, type)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Setter for brush type</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setBrushType(self, type: str):
+    &#39;&#39;&#39;
+        Setter for brush type
+    &#39;&#39;&#39;
+    self.type = Constants.BrushTypes[type]</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.setCapType"><code class="name flex">
+<span>def <span class="ident">setCapType</span></span>(<span>self, type)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Setter for cap type</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setCapType(self, type):
+    &#39;&#39;&#39;
+        Setter for cap type
+    &#39;&#39;&#39;
+    cap = self.capTypes[type] if type in self.capTypes else type
+    if cap not in self.capTypes.values():
+        raise ValueError(&#39;%s is not a valid cap type&#39; % (cap))
+    self.cap = cap</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.setColour"><code class="name flex">
+<span>def <span class="ident">setColour</span></span>(<span>self, colour)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Setter for colour</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setColour(self, colour):
+    &#39;&#39;&#39;
+        Setter for colour
+    &#39;&#39;&#39;
+    self.colour = colour    # TODO: validation</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.setDefaults"><code class="name flex">
+<span>def <span class="ident">setDefaults</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Sets the defaults for the brush</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setDefaults(self):
+    &#39;&#39;&#39;
+        Sets the defaults for the brush
+    &#39;&#39;&#39;
+    self.size = 10
+    self.colour = Qt.red
+    self.line = Qt.SolidLine
+    self.cap = Qt.RoundCap
+    self.join = Qt.RoundJoin
+    self.type = Constants.BrushTypes.BRUSH</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.setJoinType"><code class="name flex">
+<span>def <span class="ident">setJoinType</span></span>(<span>self, type)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Setter for join type</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setJoinType(self, type):
+    &#39;&#39;&#39;
+        Setter for join type
+    &#39;&#39;&#39;
+    join = self.joinTypes[type] if type in self.joinTypes else type
+    if join not in self.joinTypes.values():
+        raise ValueError(&#39;%s is not a valid join type&#39; % (join))
+    self.join = join</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.setLineType"><code class="name flex">
+<span>def <span class="ident">setLineType</span></span>(<span>self, type)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Setter for line type</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setLineType(self, type):
+    &#39;&#39;&#39;
+        Setter for line type
+    &#39;&#39;&#39;
+    line = self.lineTypes[type] if type in self.lineTypes else type
+    if line not in self.lineTypes.values():
+        raise ValueError(&#39;%s is not a valid line type&#39; % (line))
+    self.line = line</code></pre>
+</details>
+</dd>
+<dt id="app.models.brush.Brush.setSize"><code class="name flex">
+<span>def <span class="ident">setSize</span></span>(<span>self, size)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Setter for size</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setSize(self, size: int):
+    &#39;&#39;&#39;
+        Setter for size
+    &#39;&#39;&#39;
+    self.size = size</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="app.models" href="index.html">app.models</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="app.models.brush.Brush" href="#app.models.brush.Brush">Brush</a></code></h4>
+<ul class="two-column">
+<li><code><a title="app.models.brush.Brush.capTypes" href="#app.models.brush.Brush.capTypes">capTypes</a></code></li>
+<li><code><a title="app.models.brush.Brush.getAllBrushTypes" href="#app.models.brush.Brush.getAllBrushTypes">getAllBrushTypes</a></code></li>
+<li><code><a title="app.models.brush.Brush.getAllCapTypes" href="#app.models.brush.Brush.getAllCapTypes">getAllCapTypes</a></code></li>
+<li><code><a title="app.models.brush.Brush.getAllJoinTypes" href="#app.models.brush.Brush.getAllJoinTypes">getAllJoinTypes</a></code></li>
+<li><code><a title="app.models.brush.Brush.getAllLineTypes" href="#app.models.brush.Brush.getAllLineTypes">getAllLineTypes</a></code></li>
+<li><code><a title="app.models.brush.Brush.getBrushType" href="#app.models.brush.Brush.getBrushType">getBrushType</a></code></li>
+<li><code><a title="app.models.brush.Brush.getCapType" href="#app.models.brush.Brush.getCapType">getCapType</a></code></li>
+<li><code><a title="app.models.brush.Brush.getColour" href="#app.models.brush.Brush.getColour">getColour</a></code></li>
+<li><code><a title="app.models.brush.Brush.getJoinType" href="#app.models.brush.Brush.getJoinType">getJoinType</a></code></li>
+<li><code><a title="app.models.brush.Brush.getLineType" href="#app.models.brush.Brush.getLineType">getLineType</a></code></li>
+<li><code><a title="app.models.brush.Brush.getPen" href="#app.models.brush.Brush.getPen">getPen</a></code></li>
+<li><code><a title="app.models.brush.Brush.getPreviewPen" href="#app.models.brush.Brush.getPreviewPen">getPreviewPen</a></code></li>
+<li><code><a title="app.models.brush.Brush.getSize" href="#app.models.brush.Brush.getSize">getSize</a></code></li>
+<li><code><a title="app.models.brush.Brush.joinTypes" href="#app.models.brush.Brush.joinTypes">joinTypes</a></code></li>
+<li><code><a title="app.models.brush.Brush.lineTypes" href="#app.models.brush.Brush.lineTypes">lineTypes</a></code></li>
+<li><code><a title="app.models.brush.Brush.setBrushType" href="#app.models.brush.Brush.setBrushType">setBrushType</a></code></li>
+<li><code><a title="app.models.brush.Brush.setCapType" href="#app.models.brush.Brush.setCapType">setCapType</a></code></li>
+<li><code><a title="app.models.brush.Brush.setColour" href="#app.models.brush.Brush.setColour">setColour</a></code></li>
+<li><code><a title="app.models.brush.Brush.setDefaults" href="#app.models.brush.Brush.setDefaults">setDefaults</a></code></li>
+<li><code><a title="app.models.brush.Brush.setJoinType" href="#app.models.brush.Brush.setJoinType">setJoinType</a></code></li>
+<li><code><a title="app.models.brush.Brush.setLineType" href="#app.models.brush.Brush.setLineType">setLineType</a></code></li>
+<li><code><a title="app.models.brush.Brush.setSize" href="#app.models.brush.Brush.setSize">setSize</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
